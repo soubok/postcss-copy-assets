@@ -161,7 +161,7 @@ module.exports = postcss.plugin('postcss-copy-assets', function (copyOpts) {
             result.warn('postcss-copy-assets requires postcss "from" option.');
             return;
         }
-        if (!postCssOpts.to || postCssOpts.to === postCssOpts.from) {
+        if (!postCssOpts.to) {
             result.warn('postcss-copy-assets requires postcss "to" option.');
             return;
         }
