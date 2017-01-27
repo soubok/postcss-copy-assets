@@ -124,6 +124,10 @@ function handleUrlDecl(decl, copyOpts, postCssOpts, postCssResult) {
                 path.join(path.relative(cssToDir, newAssetPath), urlBasename) +
                 '")';
 
+            // make url() path separator posix
+            if ( path.sep === path.win32.sep )
+                newUrl = newUrl.replace(/\\/g, '/');
+        
             // Return early with new url() string if original file is unreadable
             if (contents === null) {
                 return newUrl;
